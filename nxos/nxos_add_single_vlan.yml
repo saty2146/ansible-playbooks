@@ -23,9 +23,9 @@
       checkpoint_file: "{{ ansible_date_time.iso8601_basic_short }}.cfg"
       provider: "{{ nxapi }}"
     register: result
-  
-  - debug: "msg='filename: {{ result.filename }}'"
 
+  - debug: var=result
+  
   - name: Add VLAN 
     nxos_vlan:
       vlan_id: 70
