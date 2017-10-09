@@ -8,7 +8,7 @@
 
   vars:
     nxapi:
-      host: "{{ inventory_hostname }}"
+      host: "{{ host }}"
       #      username: "{{ ansible_ssh_user }}"
       #password: "{{ ansible_ssh_pass }}"
       transport: nxapi
