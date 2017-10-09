@@ -8,7 +8,7 @@
 
   vars:
     nxapi:
-      host: host
+      host: "{{ host }}"
       username: ""
       password: ""
       transport: nxapi
