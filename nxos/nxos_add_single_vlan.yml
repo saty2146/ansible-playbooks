@@ -8,7 +8,7 @@
 
   vars:
     nxapi:
-      host: ""
+      host: host
       username: ""
       password: ""
       transport: nxapi
@@ -38,7 +38,7 @@
   handlers:
   - name: write
     nxos_config:
-      #      provider: "{{ nxapi }}"
+      provider: "{{ nxapi }}"
       commands: "copy running-config startup-config"
 
   - debug: "msg='End of add single VLAN'"
