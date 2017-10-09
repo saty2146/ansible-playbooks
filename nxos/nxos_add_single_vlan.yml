@@ -9,8 +9,8 @@
   vars:
     nxapi:
       host: "{{ inventory_hostname }}"
-      username: "{{ ansible_ssh_user }}"
-      password: "{{ ansible_ssh_pass }}"
+      #      username: "{{ ansible_ssh_user }}"
+      #password: "{{ ansible_ssh_pass }}"
       transport: nxapi
       use_ssl: yes
       validate_certs: no
