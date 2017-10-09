@@ -6,12 +6,22 @@
   connection: local
   gather_facts: true
 
+  vars:
+    nxapi:
+      host: ""
+      username: ""
+      password: ""
+      transport: nxapi
+      use_ssl: yes
+      validate_certs: no
+      port: 8181
+
   tasks:
 
   - name: Create checkpoint file
     nxos_rollback:
       checkpoint_file: "{{ ansible_date_time.iso8601_basic_short }}.cfg"
-      #      provider: "{{ nxapi }}"
+      provider: "{{ nxapi }}"
     register: result
   
   - debug: "msg='filename: {{ result.filename }}'"
@@ -21,7 +31,7 @@
       vlan_id: 70
       name: test_70
       state: present
-      #      provider: "{{ nxapi }}"
+      provider: "{{ nxapi }}"
     when: result|success
     notify: write
 
