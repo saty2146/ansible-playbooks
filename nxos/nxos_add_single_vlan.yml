@@ -2,7 +2,7 @@
 # ADD SINGLE VLAN
 
 - name: VLAN Provisioning
-  hosts: six.n9k sit.n9k
+  hosts: n911
   connection: local
   gather_facts: true
 
@@ -11,7 +11,7 @@
   - name: Create checkpoint file
     nxos_rollback:
       checkpoint_file: "{{ ansible_date_time.iso8601_basic_short }}.cfg"
-      provider: "{{ nxapi }}"
+      #      provider: "{{ nxapi }}"
     register: result
   
   - debug: "msg='filename: {{ result.filename }}'"
@@ -21,14 +21,14 @@
       vlan_id: 70
       name: test_70
       state: present
-      provider: "{{ nxapi }}"
+      #      provider: "{{ nxapi }}"
     when: result|success
     notify: write
 
   handlers:
   - name: write
     nxos_config:
-      provider: "{{ nxapi }}"
+      #      provider: "{{ nxapi }}"
       commands: "copy running-config startup-config"
 
   - debug: "msg='End of add single VLAN'"
