@@ -6,6 +6,14 @@
   connection: local
   gather_facts: true
 
+  vars:
+    nxapi:
+      host: "{{ host }}"
+      transport: nxapi
+      use_ssl: yes
+      validate_certs: no
+      port: 8181
+
   tasks:
 
   - name: Create checkpoint file
